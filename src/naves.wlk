@@ -50,15 +50,13 @@ class NaveCombate {
 		if (self.enModoAtaque()) {			
 			self.emitirMensaje("Enemigo encontrado")
 		} else {
-			self.emitirMensaje("RETIRADAAAAAA")
 			self.escapar()
+			self.emitirMensaje("RETIRADAAAAAA")
 		}
 	}
 
 	method escapar() {
 		velocidad = (20000 + velocidad).min(300000)
-		visible = true
-		misilesDesplegados = false
 	}
 
 }
@@ -66,6 +64,7 @@ class NaveCombate {
 class NaveDePasajeros {
 
 	var property velocidad = 0
+	var property sirena = false
 	var cantidadDePasajeros = 0
 
 	method racionesDeComidaNecesarias() = 4 * (cantidadDePasajeros + 4) + if (cantidadDePasajeros > 50) 20 else 0
@@ -82,6 +81,7 @@ class NaveDePasajeros {
 
 	method escapar() {
 		velocidad = (20000 + velocidad).min(300000)
+		sirena = true
 	}
 }
 
